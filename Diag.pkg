@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2025.3.0.169991+3b76e4db1003" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">SessionId</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">jobResult</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">jobResult2</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">jobResult1</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">SessionId_CDD</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">cdd</DVALUE>
+						</ELEMENT>
+						<ELEMENT dkey="zh_CN">
+							<DVALUE xsi:type="string">Powertrain</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">SessionId_ODX</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">odx</DVALUE>
+						</ELEMENT>
+						<ELEMENT dkey="zh_CN">
+							<DVALUE xsi:type="string">Powertrain</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">DIAG-CAN01.CallService</ID>
+			<XACCESS xsi:type="xaJob">
+				<PORT-ID xsi:type="string">DIAG-CAN01</PORT-ID>
+				<JOB-NAME xsi:type="string">CallService</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">DIAG-CAN01.CloseSession</ID>
+			<XACCESS xsi:type="xaJob">
+				<PORT-ID xsi:type="string">DIAG-CAN01</PORT-ID>
+				<JOB-NAME xsi:type="string">CloseSession</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">DIAG-CAN01.OpenDiagSession</ID>
+			<XACCESS xsi:type="xaJob">
+				<PORT-ID xsi:type="string">DIAG-CAN01</PORT-ID>
+				<JOB-NAME xsi:type="string">OpenDiagSession</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">cdd/DoorStatus</ID>
+			<XACCESS format-rev="1" xsi:type="xADiagDid">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<DIAG-ENTITY-KEY xsi:type="string">cdd</DIAG-ENTITY-KEY>
+				<DID-NAME xsi:type="string">DoorStatus</DID-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">cdd/Fault_Memory</ID>
+			<XACCESS format-rev="1" xsi:type="xADiagFaultMemory">
+				<DIAG-ENTITY-KEY xsi:type="string">cdd</DIAG-ENTITY-KEY>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">odx/DoorStatus_Read</ID>
+			<DESCRIPTION xsi:type="string">DIAG-SERVICE (0x22 - Read Data By Identifier)</DESCRIPTION>
+			<XACCESS format-rev="1" xsi:type="xADiagService">
+				<DIAG-ENTITY-KEY xsi:type="string">odx</DIAG-ENTITY-KEY>
+				<DIAG-SERVICE-NAME xsi:type="string">DoorStatus_Read</DIAG-SERVICE-NAME>
+				<DIAG-SERVICE-ID xsi:type="integer">34</DIAG-SERVICE-ID>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">odx/DoorStatus_Set</ID>
+			<DESCRIPTION xsi:type="string">DIAG-SERVICE (0x2f - Input Output Control By Identifier)</DESCRIPTION>
+			<XACCESS format-rev="1" xsi:type="xADiagService">
+				<DIAG-ENTITY-KEY xsi:type="string">odx</DIAG-ENTITY-KEY>
+				<DIAG-SERVICE-NAME xsi:type="string">DoorStatus_Set</DIAG-SERVICE-NAME>
+				<DIAG-SERVICE-ID xsi:type="integer">47</DIAG-SERVICE-ID>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="1d8a9135-c64b-4eeb-afe6-ed79822031d8" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="zh_CN">
+						<DVALUE xsi:type="string">Raw Diag</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="4" id="e7af90d8-b177-4dca-8deb-b5b33cd3b40e" xsi:type="tsJob">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">DIAG-CAN01.OpenDiagSession</MAPPING-REF>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">SessionId</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">AddressByte</NAME>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">AddressMode</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">BlockSize</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">DiagTimeoutCanIsoTp</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">2000</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">FillByte</NAME>
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStream</NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">00</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">FlowControlAddressByte</NAME>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">FlowControlId</NAME>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">IsExtended</NAME>
+					<EXPRESSION xsi:type="unaryOpBaseExpression">
+						<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+						<COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</COMPONENT>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">IsExtendedFlowControlId</NAME>
+					<EXPRESSION xsi:type="unaryOpBaseExpression">
+						<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+						<COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</COMPONENT>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">IsExtendedRequestId</NAME>
+					<EXPRESSION xsi:type="unaryOpBaseExpression">
+						<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+						<COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</COMPONENT>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">IsExtendedResponseId</NAME>
+					<EXPRESSION xsi:type="unaryOpBaseExpression">
+						<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+						<COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</COMPONENT>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">RequestId</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0x700</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">ResponseId</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0x600</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">SeparationTime</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">StartRequest</NAME>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">StopRequest</NAME>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">TesterPresentCycleTime</NAME>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">TesterPresentRequest</NAME>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+			<TESTSTEP format-rev="4" id="3d49b9f8-f1e3-4847-aea3-f979c092427e" xsi:type="tsJob">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">DIAG-CAN01.CallService</MAPPING-REF>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">jobResult</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Request</NAME>
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStream</NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">10:01</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">SessionId</NAME>
+					<EXPRESSION xsi:type="varBaseExpression">
+						<NAME xsi:type="string">SessionId</NAME>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Timeout</NAME>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="e38af333-81c4-466b-addd-bbb5227f13a9" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">jobResult1</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<FORMULA xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">jobResult</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Response</ATTR-NAME>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="3b47afc4-b3e3-47ea-8c88-961cfa6fe8fa" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<FORMULA xsi:type="sliceBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">jobResult1</NAME>
+					</COMPONENT>
+					<START format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">2</VALUE>
+					</START>
+					<STOP format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">6</VALUE>
+					</STOP>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="4" id="0989bbe3-f292-4087-a3cd-89cce9d9a085" xsi:type="tsJob">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">DIAG-CAN01.CallService</MAPPING-REF>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">jobResult2</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Request</NAME>
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStream</NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">19:0A</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">SessionId</NAME>
+					<EXPRESSION xsi:type="varBaseExpression">
+						<NAME xsi:type="string">SessionId</NAME>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Timeout</NAME>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="64661445-952e-4fea-baae-6c0435def509" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<FORMULA xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">jobResult2</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Response</ATTR-NAME>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="4" id="33c5a43b-ea71-4217-afe3-e0447717e691" xsi:type="tsJob">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">DIAG-CAN01.CloseSession</MAPPING-REF>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">SessionId</NAME>
+					<EXPRESSION xsi:type="varBaseExpression">
+						<NAME xsi:type="string">SessionId</NAME>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="471c513d-eeda-4cb4-b959-ef349add87fb" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="zh_CN">
+						<DVALUE xsi:type="string">CDD</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="1" id="fb58a148-d376-4f02-82fe-0a965460a31c" xsi:type="tsXaCallRead">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">cdd/DoorStatus</MAPPING-REF>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact.DoorContactFrontLeft</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="readOnlyExpression"/>
+				</RETURN>
+			</TESTSTEP>
+			<TESTSTEP id="ff46e734-8427-4c35-99e3-7c8c43ec7d08" xsi:type="tsReadFaultMemory">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">cdd/Fault_Memory</MAPPING-REF>
+				<SUBFUNCTION xsi:type="string">ReportDTCByStatusMask</SUBFUNCTION>
+				<STATUSMASK format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">0x09</VALUE>
+				</STATUSMASK>
+			</TESTSTEP>
+			<TESTSTEP format-rev="4" id="caeef5f7-2198-4c24-96af-0fac1a38cff5" xsi:type="tsJob">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">DIAG-CAN01.CallService</MAPPING-REF>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">jobResult</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Request</NAME>
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStream</NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">10:01</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">SessionId</NAME>
+					<EXPRESSION xsi:type="varBaseExpression">
+						<NAME xsi:type="string">SessionId_CDD</NAME>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Timeout</NAME>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="60dbe32b-6c2f-4e7c-92b5-747ba7844355" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="zh_CN">
+						<DVALUE xsi:type="string">ODX</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="2" id="bc5914e1-3a24-4d96-9d0a-decad497c26f" xsi:type="tsXaCallDiagService">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">odx/DoorStatus_Read</MAPPING-REF>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactFrontLeft</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="builtStringExpression">
+						<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+						<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">closed</VALUE>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+				</RETURN>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactFrontRight</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="builtStringExpression">
+						<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+						<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">open</VALUE>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+				</RETURN>
+				<CHOICE-NRC xsi:type="string">NONE</CHOICE-NRC>
+				<CHOICE xsi:type="string"/>
+			</TESTSTEP>
+			<TESTSTEP format-rev="2" id="01c561f3-db64-4a80-81f2-6044ddaa06af" xsi:type="tsXaCallDiagService">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">odx/DoorStatus_Set</MAPPING-REF>
+				<PARAMETER xsi:type="callParameter">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactFrontLeft</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">closed</VALUE>
+					</VALUE>
+				</PARAMETER>
+				<PARAMETER xsi:type="callParameter">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactFrontRight</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">closed</VALUE>
+					</VALUE>
+				</PARAMETER>
+				<PARAMETER xsi:type="callParameter">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactRearLeft</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">closed</VALUE>
+					</VALUE>
+				</PARAMETER>
+				<PARAMETER xsi:type="callParameter">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactRearRight</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">closed</VALUE>
+					</VALUE>
+				</PARAMETER>
+				<PARAMETER xsi:type="callParameter">
+					<NAME xsi:type="string">DoorContact_STRUCTURE._reserved</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0</VALUE>
+					</VALUE>
+				</PARAMETER>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactFrontLeft</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="builtStringExpression">
+						<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+						<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">closed</VALUE>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+				</RETURN>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactFrontRight</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="builtStringExpression">
+						<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+						<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">closed</VALUE>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+				</RETURN>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactRearLeft</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="builtStringExpression">
+						<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+						<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">closed</VALUE>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+				</RETURN>
+				<RETURN xsi:type="callReturn">
+					<NAME xsi:type="string">DoorContact_STRUCTURE.DoorContactRearRight</NAME>
+					<METRIC format-rev="1" xsi:type="metricInfo">
+						<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+						<VALUE-TYPE xsi:type="string">TEXT</VALUE-TYPE>
+						<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+					</METRIC>
+					<EXPECTATION xsi:type="builtStringExpression">
+						<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+						<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">closed</VALUE>
+						</BASE-EXPRESSION>
+					</EXPECTATION>
+				</RETURN>
+				<CHOICE-NRC xsi:type="string">NONE</CHOICE-NRC>
+				<CHOICE xsi:type="string"/>
+			</TESTSTEP>
+			<TESTSTEP format-rev="4" id="b504d4e5-8fd9-4e2c-be7e-e74f918ecec7" xsi:type="tsJob">
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<MAPPING-REF xsi:type="string">DIAG-CAN01.CallService</MAPPING-REF>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">jobResult</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Request</NAME>
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ByteStream</NAME>
+						</COMPONENT>
+						<ARGUMENTS>
+							<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">10:01</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">SessionId</NAME>
+					<EXPRESSION xsi:type="varBaseExpression">
+						<NAME xsi:type="string">SessionId_ODX</NAME>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">Timeout</NAME>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>
