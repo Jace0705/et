@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.1.0.147701+5773b28903a4" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">Plant model/currentTime</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">currentTime</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">flt(64,IEEE)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">Plant model/errorNumber</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">errorNumber</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">uint(32)</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-RECORDING format-rev="4" xsi:type="recordingManager">
+		<SIGNAL-GROUPS>
+			<ELEMENT format-rev="2" xsi:type="signalGroup">
+				<NAME xsi:type="string">Plant model</NAME>
+				<DESCRIPTION xsi:type="string"/>
+				<SIGNALS>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">Plant model/currentTime</MAPPING-REF>
+					</ELEMENT>
+					<ELEMENT xsi:type="signal">
+						<MAPPING-REF xsi:type="string">Plant model/errorNumber</MAPPING-REF>
+					</ELEMENT>
+				</SIGNALS>
+			</ELEMENT>
+		</SIGNAL-GROUPS>
+		<RECORDING-GROUP>
+			<ELEMENT format-rev="3" xsi:type="recordingGroup">
+				<NAME xsi:type="string">Recording group for Plant model</NAME>
+				<UUID xsi:type="string">846cbabd06a111efac91005056c00008</UUID>
+				<RECORDING-MODE xsi:type="integer">2</RECORDING-MODE>
+				<SIGNAL-GROUP-REF>Plant model</SIGNAL-GROUP-REF>
+			</ELEMENT>
+		</RECORDING-GROUP>
+		<SYNCHRONISATION-CONFIG xsi:type="syncConfig"/>
+		<TRACE-MERGE-CONFIG xsi:type="traceMergeConfig">
+			<MODE xsi:type="integer">0</MODE>
+			<PATH format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">merged</VALUE>
+			</PATH>
+		</TRACE-MERGE-CONFIG>
+	</TRACE-RECORDING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP id="eac897b6-cbe4-449b-b7b3-81c35119a009" xsi:type="tsStimulate">
+			<MAPPING-REF xsi:type="string">Plant model/currentTime</MAPPING-REF>
+			<SEGMENTS>
+				<ELEMENT format-rev="1" xsi:type="tsStimulateSegment">
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ConstantSegment</NAME>
+						</COMPONENT>
+						<KEYWORD-ARGUMENTS>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">duration</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">2.0</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">value</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.0</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+						</KEYWORD-ARGUMENTS>
+					</EXPRESSION>
+				</ELEMENT>
+				<ELEMENT format-rev="1" xsi:type="tsStimulateSegment">
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ConstantSegment</NAME>
+						</COMPONENT>
+						<KEYWORD-ARGUMENTS>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">duration</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.5</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">value</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">1.0</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+						</KEYWORD-ARGUMENTS>
+					</EXPRESSION>
+				</ELEMENT>
+			</SEGMENTS>
+		</TESTSTEP>
+		<TESTSTEP id="35edd199-7a03-48cf-95fd-221b43d95e26" xsi:type="tsStimulate">
+			<MAPPING-REF xsi:type="string">Plant model/errorNumber</MAPPING-REF>
+			<SEGMENTS>
+				<ELEMENT format-rev="1" xsi:type="tsStimulateSegment">
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ConstantSegment</NAME>
+						</COMPONENT>
+						<KEYWORD-ARGUMENTS>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">duration</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">2.15</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">value</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.0</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+						</KEYWORD-ARGUMENTS>
+					</EXPRESSION>
+				</ELEMENT>
+				<ELEMENT format-rev="1" xsi:type="tsStimulateSegment">
+					<EXPRESSION xsi:type="functionBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">ConstantSegment</NAME>
+						</COMPONENT>
+						<KEYWORD-ARGUMENTS>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">duration</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.35</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+							<KEYWORD-ARGUMENT xsi:type="kwargBaseExpression">
+								<KEY format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="string">value</VALUE>
+								</KEY>
+								<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">2.0</VALUE>
+								</ARGUMENT>
+							</KEYWORD-ARGUMENT>
+						</KEYWORD-ARGUMENTS>
+					</EXPRESSION>
+				</ELEMENT>
+			</SEGMENTS>
+		</TESTSTEP>
+		<TESTSTEP id="95849c9d-7e88-4d30-bb37-53b69b16ff6f" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="float">2.5</VALUE>
+			</TIME>
+			<UNIT xsi:type="string">s</UNIT>
+		</TESTSTEP>
+	</TESTSTEPS>
+	<TRACE-ANALYSES format-rev="1" xsi:type="traceAnalyses">
+		<TRACE-ANALYSIS format-rev="3" uuid="d86a98e6069811ef94c8005056c00008" xsi:type="traceAnalysis">
+			<NAME xsi:type="string">Trace analysis 1</NAME>
+			<ANALYSISITEM format-rev="1" uuid="d86a98e7069811efa076005056c00008" xsi:type="episode">
+				<NAME xsi:type="string">New episode</NAME>
+				<ANALYSISITEM format-rev="3" poolRev="7" uuid="9ed487d806a111efafe6005056c00008" xsi:type="referencingTraceStep">
+					<NAME xsi:type="string">Demo</NAME>
+					<ANALYSISITEM format-rev="4" uuid="cc8c742606a111efb16f005056c00008" xsi:type="plotItem">
+						<NAME xsi:type="string">Plot</NAME>
+						<SUB-PLOTS>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">separate</TYPE>
+								<ENTITIES>
+									<ENTITY format-rev="2" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">Signal0</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="2" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">Signal1</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+									<ENTITY format-rev="2" isTraceStepSignal="True" xsi:type="plotSignalEntity">
+										<NAME xsi:type="string">time_OUT</NAME>
+										<AXIS xsi:type="integer">0</AXIS>
+									</ENTITY>
+								</ENTITIES>
+								<AXES>
+									<AXIS xsi:type="plotAxis"/>
+								</AXES>
+							</SUB-PLOT>
+							<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+								<TYPE xsi:type="string">common</TYPE>
+								<ENTITIES/>
+								<AXES/>
+							</SUB-PLOT>
+						</SUB-PLOTS>
+						<UNUSED-SIGNALS/>
+						<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NONE</CONDITION>
+							<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-OVERVIEW>
+						<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-PARENT-CONTEXT>
+						<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+							<CONDITION xsi:type="string">NEVER</CONDITION>
+							<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">5</VALUE>
+							</MAX-NUMBER>
+							<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-LEFT>
+							<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="float">0.5</VALUE>
+							</EXPAND-XLIMITS-RIGHT>
+						</SUB-CONFIG-DETAILS>
+						<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+						<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+					</ANALYSISITEM>
+					<SIGNAL-BINDING xsi:type="signalBinding">
+						<PARAMETER dkey="Signal0">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">Signal0</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="Signal1">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">Signal1</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+						<PARAMETER dkey="time_OUT">
+							<DVALUE format-rev="1" xsi:type="signalParameter">
+								<REF-SIGNAL-NAME xsi:type="string">time_OUT</REF-SIGNAL-NAME>
+							</DVALUE>
+						</PARAMETER>
+					</SIGNAL-BINDING>
+					<PARAM-ASSIGNMENTS xsi:type="trcpParameterAssignments">
+						<PARAM-ASSIGNMENTS>
+							<ASSIGNMENT dkey="AllowFailedInstances">
+								<DVALUE format-rev="2" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="MaxParallelInstances">
+								<DVALUE format-rev="2" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="MinMaxSuccessfulInstances">
+								<DVALUE format-rev="2" xsi:type="valueBaseExpression"/>
+							</ASSIGNMENT>
+							<ASSIGNMENT dkey="time_IN">
+								<DVALUE format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="float">0.2</VALUE>
+								</DVALUE>
+							</ASSIGNMENT>
+						</PARAM-ASSIGNMENTS>
+					</PARAM-ASSIGNMENTS>
+					<REPORT-CONFIG xsi:type="trcpReportConfig">
+						<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+						<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+					</REPORT-CONFIG>
+					<TEMPLATE-REF xsi:type="expressionref">
+						<PATH-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">Demo.trcp</VALUE>
+						</PATH-EXPRESSION>
+					</TEMPLATE-REF>
+				</ANALYSISITEM>
+			</ANALYSISITEM>
+			<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+				<VIRTUAL-SIGNALS>
+					<VIRTUAL-SIGNAL uuid="8b775da006a111ef9c17005056c00008" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">Signal0</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">Plant model/currentTime</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">846cbabd06a111efac91005056c00008</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="8b3395ac06a111efb2f1005056c00008" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">Signal1</NAME>
+						<SIGNAL-FOR-ANALYSIS xsi:type="recordingSignalForAnalysis">
+							<KEY xsi:type="string">Plant model/errorNumber</KEY>
+							<SOURCE-TYPE xsi:type="string">RECORDING-GROUP</SOURCE-TYPE>
+							<SOURCE-REF xsi:type="string">846cbabd06a111efac91005056c00008</SOURCE-REF>
+						</SIGNAL-FOR-ANALYSIS>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+					<VIRTUAL-SIGNAL uuid="c51340ad06a111efbc16005056c00008" xsi:type="virtualSessionSignal">
+						<NAME xsi:type="string">time_OUT</NAME>
+						<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+					</VIRTUAL-SIGNAL>
+				</VIRTUAL-SIGNALS>
+			</VIRTUAL-SIGNALS-MANAGER>
+		</TRACE-ANALYSIS>
+	</TRACE-ANALYSES>
+</PACKAGE>

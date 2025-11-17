@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.3.0.156114+c108ea21784a" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">main_inbox</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="inbox">
+				<SIZE xsi:type="integer">50</SIZE>
+				<DISCARD-OLDEST xsi:type="boolean">False</DISCARD-OLDEST>
+				<OVERFLOW-WARNING xsi:type="boolean">False</OVERFLOW-WARNING>
+				<DEFAULT-FETCH-TIMEOUT xsi:type="integer">20000</DEFAULT-FETCH-TIMEOUT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">main_outbox</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="outbox">
+				<DISCARD-IF-DISCONNECTED xsi:type="boolean">False</DISCARD-IF-DISCONNECTED>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">main_variable</NAME>
+			<DESCRIPTION xsi:type="string">Return value of sub</DESCRIPTION>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">sub</ID>
+			<XACCESS xsi:type="xaPackage">
+				<PATH xsi:type="string">&lt;workspace.packages&gt;/Train/parallel/sub.pkg</PATH>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="513398a4-e7de-4917-b7f8-b09c8d9538aa" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">api</NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">TestEnvironment</ATTR-NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">ExecutionInfo</ATTR-NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">StartWatch</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="1" id="4b059d8d-0e7d-46bc-932d-6425c1503dcc" xsi:type="tsParallelPackageCall">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="zh_CN">
+						<DVALUE xsi:type="string">和并行包下面的步骤并行</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<MAPPING-REF xsi:type="string">sub</MAPPING-REF>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="sub_variable">
+					<DVALUE xsi:type="string">main_variable</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<PARAM-ASSIGNMENTS/>
+			<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+			<INBOX-BINDINGS>
+				<INBOX-BINDING dkey="sub_inbox">
+					<DVALUE xsi:type="string">main_outbox</DVALUE>
+				</INBOX-BINDING>
+			</INBOX-BINDINGS>
+			<OUTBOX-BINDINGS>
+				<OUTBOX-BINDING dkey="sub_outbox">
+					<DVALUE xsi:type="string">main_inbox</DVALUE>
+				</OUTBOX-BINDING>
+			</OUTBOX-BINDINGS>
+		</TESTSTEP>
+		<TESTSTEP id="27be4086-00ca-49c8-89da-c485cee5fb53" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">2000</VALUE>
+			</TIME>
+		</TESTSTEP>
+		<TESTSTEP id="08a2c730-c790-442b-a710-a56ff3bb88e8" name="TsOutboxPost" xsi:type="utility-179c75a2-4fef-11dc-8fdd-0013728784ee">
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="outbox">
+					<DVALUE xsi:type="string">main_outbox</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<MESSAGE format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">hi</VALUE>
+			</MESSAGE>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="5b9f5e8f-0284-44aa-bd55-db3692d3ba30" name="TsInboxFetch" xsi:type="utility-179c75a3-4fef-11dc-8fdd-0013728784ee">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="inbox">
+					<DVALUE xsi:type="string">main_inbox</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="46496dab-507a-4c76-95b8-315e69e88ff9" name="TsInboxFetch" xsi:type="utility-179c75a3-4fef-11dc-8fdd-0013728784ee">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="inbox">
+					<DVALUE xsi:type="string">main_inbox</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<FETCH-TIMEOUT format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">100</VALUE>
+			</FETCH-TIMEOUT>
+		</TESTSTEP>
+		<TESTSTEP id="7b708b17-c067-4e6f-aa43-010d104c2360" name="TsReactOn" xsi:type="utility-83517ac0-9f53-11dd-9c62-001b24fa84bf">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="zh_CN">
+						<DVALUE xsi:type="string">不考虑“After”里面的时间的时候，默认的执行优先级为：“On Inbox”、“On Var”、“After”</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<TESTSTEP id="8b3341ea-15c8-4440-87fe-ab5bd4a230d0" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="afterCondition">
+					<time format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">1002</VALUE>
+					</time>
+				</ON-CONDITION>
+				<COMMENT-I18N xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="zh_CN">
+							<DVALUE xsi:type="string">当此步骤的等待时间比另外两个子步骤（含等待时间）所需时间：
+较短（小于等于某一个步骤所需的最大时间）的时候，会优先执行此步骤（此时的时间为最终结束时间）；
+较长且大于另外两个步骤整体所需时间的时候，此时最终结束时间为另外两个步骤之和；
+较长，此时的时间是最终结束时间。</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">zh_CN</INITIAL-LANGUAGE>
+				</COMMENT-I18N>
+				<TESTSTEP id="c0fc57ae-d4b6-4f41-9871-f1c47891687c" name="TsBreak" xsi:type="utility-11b0144f-4e4f-11e0-b968-1c659df540cc"/>
+			</TESTSTEP>
+			<TESTSTEP id="3e5a5e5d-7619-47e8-8ef0-0521a85773bd" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="futureCondition">
+					<VAR-NAME xsi:type="string">main_variable</VAR-NAME>
+				</ON-CONDITION>
+				<TESTSTEP id="7d9cd165-b0c3-4eff-bf83-d8236302c4d6" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+					<TIME format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">800</VALUE>
+					</TIME>
+				</TESTSTEP>
+			</TESTSTEP>
+			<TESTSTEP id="1fddd46d-070b-4e60-b20f-6a4106e0bac1" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="inboxCondition">
+					<INBOX-NAME xsi:type="string">main_inbox</INBOX-NAME>
+				</ON-CONDITION>
+				<TESTSTEP format-rev="3" id="c82399eb-08b0-4003-9eaa-3a9ccd1e6861" name="TsInboxFetch" xsi:type="utility-179c75a3-4fef-11dc-8fdd-0013728784ee">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="inbox">
+							<DVALUE xsi:type="string">main_inbox</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<FETCH-TIMEOUT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">100</VALUE>
+					</FETCH-TIMEOUT>
+				</TESTSTEP>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="ac0d06ee-3a2f-4e72-bc76-fba5b1eab7f2" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">api</NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">TestEnvironment</ATTR-NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">ExecutionInfo</ATTR-NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">GetWatchTime</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

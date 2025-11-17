@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.1.0.147701+5773b28903a4" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">Start</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="function">
+				<CODE xsi:type="string">import subprocess
+# function must be named 'func'
+#def func():
+ #p=subprocess.run(['python',r&quot;D:\software\Python\Python_workspace\For_subprocess.py&quot;])#阻塞主进程，pkg会一直在Culation位置，不会停止，直到脚本运行结束
+ 
+ #p=subprocess.Popen(['python',r&quot;D:\software\Python\Python_workspace\For_subprocess.py&quot;])#不会影响pkg正常运行完后停止
+
+ #p=subprocess.run(['python',r&quot;D:\software\Python\Python_workspace\For_subprocess.py&quot;],stdout=subprocess.PIPE,stderr=subprocess.PIPE)#获取输出和报文信息（可限制数目）
+ #stdout=p.stdout
+ #stderr=p.stderr
+ #if p.returncode!=0:
+     #print(stdout)
+     #print(stderr)
+     
+def func():
+  #  a=str(a)
+   # b=str(b)
+   # p=subprocess.run(['python',r&quot;D:\software\Python\Python_workspace\For_subprocess.py&quot;,a,b],
+                                                                      #stdout=subprocess.PIPE,
+                                                                      #stderr=subprocess.PIPE)
+   # stdout=p.stdout
+   # stderr=p.stderr
+   # print(stdout)
+    #print(stderr)
+    
+    
+    p=subprocess.run(['python',r&quot;D:\software\Python\Python_workspace\For_subprocess.py&quot;,'--string',str(a),
+                                                                                        '--value-test',str(b),
+                                                                                        '--list-test','0 1 2'],
+                                                                                        stdout=subprocess.PIPE,
+                                                                                        stderr=subprocess.PIPE)#传入复杂的参数
+    stdout=p.stdout
+    stderr=p.stderr
+    print(stdout)
+    print(stderr)
+    
+    
+</CODE>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">parallel</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="function">
+				<CODE xsi:type="string">import subprocess
+import os
+# function must be named 'func'
+def func():
+    pid = os.getpid()
+    print(pid)
+    p=subprocess.run(['python',r&quot;D:\software\Python\Python_workspace\parallel_subprocess.py&quot;])#运行脚本实现监控功能，同时保证测试package的正常运行(并行)
+
+    #stdout=p.stdout
+    #stderr=p.stderr
+    #print(stdout)
+    #print(stderr)
+    
+ #,stdout=subprocess.PIPE,stderr=subprocess.PIPE,creationflags=0x08000000
+</CODE>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">A</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="d61d5bb7-90ee-42c1-90bb-f3d81498ecb4" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">Start</NAME>
+				</COMPONENT>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="866386e3-b42b-41b1-bdce-9123f514c30e" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">Start</NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">a</VALUE>
+					</ARGUMENT>
+					<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">b</VALUE>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="efbfa420-c455-46f8-a2a7-82ee907e4c95" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">Start</NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">a</VALUE>
+					</ARGUMENT>
+					<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">2</VALUE>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="f1992d21-3932-4d70-b365-28c6aaad1a46" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="default">
+					<DVALUE xsi:type="string">A</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">parallel</NAME>
+				</COMPONENT>
+			</FORMULA>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

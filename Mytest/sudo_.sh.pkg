@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.4.0.143832+81f7f95c32e5" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">jobResult</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">NULL01.ExecuteSshCommand</ID>
+			<XACCESS xsi:type="xaJob">
+				<PORT-ID xsi:type="string">NULL01</PORT-ID>
+				<JOB-NAME xsi:type="string">ExecuteSshCommand</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="4" id="ce994214-848a-4e27-8ac8-c056e0a4d826" xsi:type="tsJob">
+			<MAPPING-REF xsi:type="string">NULL01.ExecuteSshCommand</MAPPING-REF>
+			<JOB-PARAMETER xsi:type="tsJobParameter">
+				<NAME xsi:type="string">command</NAME>
+				<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">cd /home/yan/文档</VALUE>
+				</EXPRESSION>
+			</JOB-PARAMETER>
+			<JOB-PARAMETER xsi:type="tsJobParameter">
+				<NAME xsi:type="string">nonBlocking</NAME>
+				<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="boolean">False</VALUE>
+				</EXPRESSION>
+			</JOB-PARAMETER>
+		</TESTSTEP>
+		<TESTSTEP format-rev="4" id="e61e4468-2fdb-41d6-927d-3ef4031e4851" xsi:type="tsJob">
+			<MAPPING-REF xsi:type="string">NULL01.ExecuteSshCommand</MAPPING-REF>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="default">
+					<DVALUE xsi:type="string">jobResult</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<JOB-PARAMETER xsi:type="tsJobParameter">
+				<NAME xsi:type="string">command</NAME>
+				<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">echo jc123456 | sudo -S /home/yan/文档/hello.sh</VALUE>
+				</EXPRESSION>
+			</JOB-PARAMETER>
+			<JOB-PARAMETER xsi:type="tsJobParameter">
+				<NAME xsi:type="string">nonBlocking</NAME>
+				<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="boolean">False</VALUE>
+				</EXPRESSION>
+			</JOB-PARAMETER>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

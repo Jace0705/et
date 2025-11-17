@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.1.0.147157+fa5f5e045e43" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">IN_relay1_OUT</NAME>
+			<DESCRIPTION xsi:type="string">Buffer：已经与发件箱连接，但尚未与收件箱连接，并且发送方已经在传输消息时，帽缓冲区用于临时存储消息。</DESCRIPTION>
+			<DEFAULT-VALUE xsi:type="relay">
+				<BUFFER-SIZE xsi:type="integer">10</BUFFER-SIZE>
+				<OVERFLOW-ERROR xsi:type="boolean">True</OVERFLOW-ERROR>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">IN_relay2_OUT</NAME>
+			<DESCRIPTION xsi:type="string">Error at overflow：控制台上只会显示警告，而不会触发(硬)错误。在这种情况下，由于缓冲区是动态扩大的，因此不会丢失消息。</DESCRIPTION>
+			<DEFAULT-VALUE xsi:type="relay">
+				<BUFFER-SIZE xsi:type="integer">10</BUFFER-SIZE>
+				<OVERFLOW-ERROR xsi:type="boolean">False</OVERFLOW-ERROR>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">AB</ID>
+			<XACCESS xsi:type="xaPackage">
+				<PATH xsi:type="string">&lt;workspace.packages&gt;/Mytest/In&amp;Out_box/AB.pkg</PATH>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">AC</ID>
+			<XACCESS xsi:type="xaPackage">
+				<PATH xsi:type="string">&lt;workspace.packages&gt;/Mytest/In&amp;Out_box/AC.pkg</PATH>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="1" id="957fb58c-ca75-4401-9543-f7e337914558" xsi:type="tsParallelPackageCall">
+			<MAPPING-REF xsi:type="string">AB</MAPPING-REF>
+			<PARAM-ASSIGNMENTS/>
+			<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+			<INBOX-BINDINGS>
+				<INBOX-BINDING dkey="In_B">
+					<DVALUE xsi:type="string">IN_relay1_OUT</DVALUE>
+				</INBOX-BINDING>
+			</INBOX-BINDINGS>
+			<OUTBOX-BINDINGS>
+				<OUTBOX-BINDING dkey="Out_B">
+					<DVALUE xsi:type="string">IN_relay2_OUT</DVALUE>
+				</OUTBOX-BINDING>
+			</OUTBOX-BINDINGS>
+		</TESTSTEP>
+		<TESTSTEP format-rev="1" id="5317d644-3f68-4609-a294-e02d4f3d88e7" xsi:type="tsParallelPackageCall">
+			<MAPPING-REF xsi:type="string">AC</MAPPING-REF>
+			<PARAM-ASSIGNMENTS/>
+			<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+			<INBOX-BINDINGS>
+				<INBOX-BINDING dkey="Int_C">
+					<DVALUE xsi:type="string">IN_relay2_OUT</DVALUE>
+				</INBOX-BINDING>
+			</INBOX-BINDINGS>
+			<OUTBOX-BINDINGS>
+				<OUTBOX-BINDING dkey="Out_C">
+					<DVALUE xsi:type="string">IN_relay1_OUT</DVALUE>
+				</OUTBOX-BINDING>
+			</OUTBOX-BINDINGS>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

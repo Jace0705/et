@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ANALYSIS-PACKAGE prog-version="2024.1.0.147701+5773b28903a4" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test analysisPackage.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">DR</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">Model Root/CTRL_VEH/DriverRequest [%]/Value</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">flt(64,IEEE)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">ELECTRIC_POWER_TRAIN/VEH_DATA/VEH_DATA/VEHICLE_VELOCITY</ID>
+			<DESCRIPTION xsi:type="string">
+</DESCRIPTION>
+			<XACCESS format-rev="1" xsi:type="xaBusSignalVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<BUS-KEY xsi:type="string">EPT-CAN</BUS-KEY>
+				<FRAME-NAME xsi:type="string">VEH_DATA</FRAME-NAME>
+				<SIGNAL-NAME xsi:type="string">VEHICLE_VELOCITY</SIGNAL-NAME>
+				<NODE-NAME xsi:type="string">ELECTRIC_POWER_TRAIN</NODE-NAME>
+				<PDU-NAME xsi:type="string">VEH_DATA</PDU-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">STATUS_BAT/StateOfCharge [%]/Value</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">Model Root/STATUS_BAT/StateOfCharge [%]/Value</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">flt(64,IEEE)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">STATUS_VEH/EngineSpeed [rpm]/In1</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelSignal">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">Model Root/STATUS_VEH/EngineSpeed [rpm]/In1</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">flt(64,IEEE)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-ANALYSIS format-rev="3" uuid="7935ee67be4e11eebb5a4cd577b94ad6" xsi:type="traceAnalysis">
+		<NAME xsi:type="string">Analysis package</NAME>
+		<ANALYSISITEM format-rev="1" uuid="79361573be4e11ee92b74cd577b94ad6" xsi:type="episode">
+			<NAME xsi:type="string">New episode</NAME>
+			<ANALYSISITEM format-rev="4" uuid="74bc4131e50911eeb238005056c00008" xsi:type="plotItem">
+				<NAME xsi:type="string">Plot</NAME>
+				<SUB-PLOTS>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">common</TYPE>
+						<ENTITIES/>
+						<AXES/>
+					</SUB-PLOT>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">separate</TYPE>
+						<ENTITIES>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">ELECTRIC_POWER_TRAIN_VEH_DATA_VEH_DATA_VEHICLE_VELOCITY</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">STATUS_BAT_StateOfCharge_____Value</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">STATUS_VEH_EngineSpeed__rpm__In1</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+						</ENTITIES>
+						<AXES>
+							<AXIS xsi:type="plotAxis"/>
+						</AXES>
+					</SUB-PLOT>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">common</TYPE>
+						<ENTITIES/>
+						<AXES/>
+					</SUB-PLOT>
+				</SUB-PLOTS>
+				<UNUSED-SIGNALS/>
+				<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NONE</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-OVERVIEW>
+				<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NEVER</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-PARENT-CONTEXT>
+				<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NEVER</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-DETAILS>
+				<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+				<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+			</ANALYSISITEM>
+			<ANALYSISITEM format-rev="4" uuid="fd0e0f23e50911ee96cd005056c00008" xsi:type="plotItem">
+				<NAME xsi:type="string">Plot</NAME>
+				<SUB-PLOTS>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">common</TYPE>
+						<ENTITIES>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">DR</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+						</ENTITIES>
+						<AXES>
+							<AXIS xsi:type="plotAxis"/>
+						</AXES>
+					</SUB-PLOT>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">separate</TYPE>
+						<ENTITIES/>
+						<AXES>
+							<AXIS xsi:type="plotAxis"/>
+						</AXES>
+					</SUB-PLOT>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">common</TYPE>
+						<ENTITIES/>
+						<AXES>
+							<AXIS xsi:type="plotAxis"/>
+						</AXES>
+					</SUB-PLOT>
+				</SUB-PLOTS>
+				<UNUSED-SIGNALS/>
+				<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NONE</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-OVERVIEW>
+				<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NEVER</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-PARENT-CONTEXT>
+				<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NEVER</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-DETAILS>
+				<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+				<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+			</ANALYSISITEM>
+			<ANALYSISITEM format-rev="1" uuid="3cadbafce50a11ee9437005056c00008" xsi:type="calculation">
+				<NAME xsi:type="string">Calculation</NAME>
+				<FORMULA xsi:type="string">DR&gt;0</FORMULA>
+				<EXPECTATION xsi:type="manualExpression">
+					<BASE-EXPRESSION xsi:type="varBaseExpression">
+						<NAME xsi:type="string">value</NAME>
+					</BASE-EXPRESSION>
+				</EXPECTATION>
+				<REPORT-CONFIG xsi:type="trcpReportConfig">
+					<MAX-SPOTS xsi:type="integer">100</MAX-SPOTS>
+					<MIN-DELTA xsi:type="float">0.0</MIN-DELTA>
+				</REPORT-CONFIG>
+			</ANALYSISITEM>
+		</ANALYSISITEM>
+		<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+			<VIRTUAL-SIGNALS>
+				<VIRTUAL-SIGNAL uuid="feb41289e4ea11ee84be005056c00008" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">STATUS_VEH_EngineSpeed__rpm__In1</NAME>
+					<MAPPING-NAME xsi:type="string">STATUS_VEH/EngineSpeed [rpm]/In1</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="5dcb06cce50611ee955c005056c00008" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">STATUS_BAT_StateOfCharge_____Value</NAME>
+					<MAPPING-NAME xsi:type="string">STATUS_BAT/StateOfCharge [%]/Value</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="c62a3c97e50711eea982005056c00008" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">ELECTRIC_POWER_TRAIN_VEH_DATA_VEH_DATA_VEHICLE_VELOCITY</NAME>
+					<MAPPING-NAME xsi:type="string">ELECTRIC_POWER_TRAIN/VEH_DATA/VEH_DATA/VEHICLE_VELOCITY</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="fd3f5587e50911ee9668005056c00008" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">DR</NAME>
+					<MAPPING-NAME xsi:type="string">DR</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+			</VIRTUAL-SIGNALS>
+		</VIRTUAL-SIGNALS-MANAGER>
+	</TRACE-ANALYSIS>
+</ANALYSIS-PACKAGE>

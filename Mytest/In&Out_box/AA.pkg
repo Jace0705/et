@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.3.0.141374+8eeee403f0b5" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Test Comment</NAME>
+				<VALUE xsi:type="string">并行package之间的传参</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">In_A</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="inbox">
+				<SIZE xsi:type="integer">50</SIZE>
+				<DISCARD-OLDEST xsi:type="boolean">False</DISCARD-OLDEST>
+				<OVERFLOW-WARNING xsi:type="boolean">False</OVERFLOW-WARNING>
+				<DEFAULT-FETCH-TIMEOUT xsi:type="integer">20000</DEFAULT-FETCH-TIMEOUT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">Out_A</NAME>
+			<DESCRIPTION xsi:type="string">Return value of AB</DESCRIPTION>
+			<DEFAULT-VALUE xsi:type="outbox">
+				<DISCARD-IF-DISCONNECTED xsi:type="boolean">False</DISCARD-IF-DISCONNECTED>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">a</NAME>
+			<DESCRIPTION xsi:type="string">Return value of AB</DESCRIPTION>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">Time</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="4" id="6f5842a4-31a1-4c7c-ab28-b8b55b862a65" xsi:type="tsParallelPackage">
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="b">
+					<DVALUE xsi:type="string">a</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<PACKAGE-REFERENCE xsi:type="expressionref">
+				<PATH-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">AB.pkg</VALUE>
+				</PATH-EXPRESSION>
+			</PACKAGE-REFERENCE>
+			<PARAM-ASSIGNMENTS/>
+			<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+			<INBOX-BINDINGS>
+				<INBOX-BINDING dkey="In_B">
+					<DVALUE xsi:type="string">Out_A</DVALUE>
+				</INBOX-BINDING>
+			</INBOX-BINDINGS>
+			<OUTBOX-BINDINGS>
+				<OUTBOX-BINDING dkey="Out_B">
+					<DVALUE xsi:type="string">In_A</DVALUE>
+				</OUTBOX-BINDING>
+			</OUTBOX-BINDINGS>
+		</TESTSTEP>
+		<TESTSTEP id="b224d319-fa8a-4ff1-8ec2-7205de19d9e5" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">1</VALUE>
+			</TIME>
+			<UNIT xsi:type="string">s</UNIT>
+		</TESTSTEP>
+		<TESTSTEP id="e1195212-0733-4bfd-8d39-6bfe9cdcc9f9" name="TsOutboxPost" xsi:type="utility-179c75a2-4fef-11dc-8fdd-0013728784ee">
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="outbox">
+					<DVALUE xsi:type="string">Out_A</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<MESSAGE format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">hellooooooo</VALUE>
+			</MESSAGE>
+		</TESTSTEP>
+		<TESTSTEP id="7a1bc9da-daac-49dc-ad2b-5631191d3010" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">1</VALUE>
+			</TIME>
+			<UNIT xsi:type="string">s</UNIT>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="6f87c7dd-7270-4193-9be1-abc5a973ac6a" name="TsInboxFetch" xsi:type="utility-179c75a3-4fef-11dc-8fdd-0013728784ee">
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="inbox">
+					<DVALUE xsi:type="string">In_A</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<SAVE-IN xsi:type="varBaseExpression">
+				<NAME xsi:type="string">Time</NAME>
+			</SAVE-IN>
+		</TESTSTEP>
+		<TESTSTEP id="2dba5fe4-0ec0-4a70-8e7a-025c9d83917b" name="TsReactOn" xsi:type="utility-83517ac0-9f53-11dd-9c62-001b24fa84bf">
+			<TESTSTEP id="7bb1cc9b-bc8c-4ac3-826d-76bfdcef33a9" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="inboxCondition">
+					<INBOX-NAME xsi:type="string">In_A</INBOX-NAME>
+				</ON-CONDITION>
+				<COMMENT-I18N xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">最后必须加break，否则将不会退出React-On</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</COMMENT-I18N>
+				<TESTSTEP format-rev="1" id="54b9265c-225b-49f5-8d41-59f01a94ed31" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">当Inbox检测到新参数传入时生效，执行子步骤</VALUE>
+					</COMMENT-EXPRESSION>
+					<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+				</TESTSTEP>
+				<TESTSTEP id="dc3bc877-7a01-4806-9272-48e2cbc03f3c" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+					<TIME format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">100</VALUE>
+					</TIME>
+				</TESTSTEP>
+				<TESTSTEP id="a5628d03-4c92-4998-b86f-fa7c8ba4e2d2" name="TsBreak" xsi:type="utility-11b0144f-4e4f-11e0-b968-1c659df540cc">
+					<ENABLED xsi:type="boolean">False</ENABLED>
+				</TESTSTEP>
+			</TESTSTEP>
+			<TESTSTEP id="52c4aa4a-f418-4769-928d-8ca021abca93" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="afterCondition">
+					<time xsi:type="varBaseExpression">
+						<NAME xsi:type="string">Time</NAME>
+					</time>
+				</ON-CONDITION>
+				<COMMENT-I18N xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">最后必须加break，否则将不会退出React-On</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</COMMENT-I18N>
+				<TESTSTEP format-rev="1" id="722dae60-b251-48f0-b564-f97926c4ab2c" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">在指定时间后生效，执行子步骤</VALUE>
+					</COMMENT-EXPRESSION>
+					<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+				</TESTSTEP>
+				<TESTSTEP id="fb26797a-0248-446b-885d-1cc79a6334fb" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+					<TIME format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">100</VALUE>
+					</TIME>
+				</TESTSTEP>
+				<TESTSTEP id="d464de63-5d3a-4e20-94c4-e39858ca7e2f" name="TsBreak" xsi:type="utility-11b0144f-4e4f-11e0-b968-1c659df540cc"/>
+			</TESTSTEP>
+			<TESTSTEP id="bade6cbf-cd13-4d34-87a6-e92169693a87" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="futureCondition">
+					<VAR-NAME xsi:type="string">a</VAR-NAME>
+				</ON-CONDITION>
+				<COMMENT-I18N xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">最后必须加break，否则将不会退出React-On</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</COMMENT-I18N>
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<TESTSTEP format-rev="1" id="b22e42e4-fd9c-421f-82db-68803df9ae07" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">当检测到某个子pkg的返回值时生效，执行子步骤，子package中的返回值必须保存到主package中</VALUE>
+					</COMMENT-EXPRESSION>
+					<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+				</TESTSTEP>
+				<TESTSTEP id="0f395362-0b0f-466f-b3b4-e934cf09b04c" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+					<TIME format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">100</VALUE>
+					</TIME>
+				</TESTSTEP>
+				<TESTSTEP id="f475f217-99d9-4b3e-95e5-5436ce3c3aec" name="TsBreak" xsi:type="utility-11b0144f-4e4f-11e0-b968-1c659df540cc"/>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

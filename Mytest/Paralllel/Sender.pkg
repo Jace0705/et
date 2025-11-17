@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2022.4.0.130530+613fcf244527" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">maxLoop</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" out="true" xsi:type="variable">
+			<NAME xsi:type="string">loopCounter</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" out="true" xsi:type="variable">
+			<NAME xsi:type="string">sendLine</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="outbox">
+				<DISCARD-IF-DISCONNECTED xsi:type="boolean">False</DISCARD-IF-DISCONNECTED>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="1" id="d10d1c58-d013-44ea-b8b7-4265a3e681cf" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+			<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">sender package starting</VALUE>
+			</COMMENT-EXPRESSION>
+		</TESTSTEP>
+		<TESTSTEP id="de53ec9c-7005-44a1-822a-f8553db3ae5d" name="TsLoop" xsi:type="utility-3da58cf0-4fef-11dc-be56-0013728784ee">
+			<TESTSTEP id="be91d387-df94-4837-bb3c-694493c40930" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">500</VALUE>
+				</TIME>
+			</TESTSTEP>
+			<TESTSTEP format-rev="1" id="499be79f-ca53-4ecc-83a9-2c9cd0ce6434" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">sender package answering</VALUE>
+				</COMMENT-EXPRESSION>
+			</TESTSTEP>
+			<TESTSTEP id="314c5153-dc5e-4cbc-9213-638debbfe1e6" name="TsOutboxPost" xsi:type="utility-179c75a2-4fef-11dc-8fdd-0013728784ee">
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="outbox">
+						<DVALUE xsi:type="string">sendLine</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<MESSAGE xsi:type="varBaseExpression">
+					<NAME xsi:type="string">loopCounter</NAME>
+				</MESSAGE>
+			</TESTSTEP>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="default">
+					<DVALUE xsi:type="string">loopCounter</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<LOOP-COUNT xsi:type="varBaseExpression">
+				<NAME xsi:type="string">maxLoop</NAME>
+			</LOOP-COUNT>
+		</TESTSTEP>
+		<TESTSTEP format-rev="1" id="ab70c233-eefa-4322-bf52-1aa41005448c" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+			<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">sender package finishing</VALUE>
+			</COMMENT-EXPRESSION>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

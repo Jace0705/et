@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2022.4.0.130530+613fcf244527" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">sendCountOutput</NAME>
+			<DESCRIPTION xsi:type="string">Return value of Sender</DESCRIPTION>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">sendCountInput</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">10</DATA>
+				<TEXTDATA xsi:type="string">10</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">loopCounter</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">receiveLine</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="inbox">
+				<SIZE xsi:type="integer">50</SIZE>
+				<DISCARD-OLDEST xsi:type="boolean">False</DISCARD-OLDEST>
+				<OVERFLOW-WARNING xsi:type="boolean">False</OVERFLOW-WARNING>
+				<DEFAULT-FETCH-TIMEOUT xsi:type="integer">20000</DEFAULT-FETCH-TIMEOUT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">receivedData</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+				<TEXTDATA xsi:type="string">0</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">sendLine2</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="outbox">
+				<DISCARD-IF-DISCONNECTED xsi:type="boolean">False</DISCARD-IF-DISCONNECTED>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">sendLine1</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="outbox">
+				<DISCARD-IF-DISCONNECTED xsi:type="boolean">False</DISCARD-IF-DISCONNECTED>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="1" id="01a447c4-1832-4937-9655-938e3f8b8483" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+			<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">mian package starting</VALUE>
+			</COMMENT-EXPRESSION>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="ba0d8161-0eb3-4676-b436-9d510b6cbbf2" xsi:type="tsParallelPackage">
+			<PACKAGE-REFERENCE xsi:type="expressionref">
+				<PATH-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Receiver1.pkg</VALUE>
+				</PATH-EXPRESSION>
+			</PACKAGE-REFERENCE>
+			<PARAM-ASSIGNMENTS>
+				<ASSIGNMENT dkey="maxLoop">
+					<DVALUE xsi:type="varBaseExpression">
+						<NAME xsi:type="string">sendCountInput</NAME>
+					</DVALUE>
+				</ASSIGNMENT>
+			</PARAM-ASSIGNMENTS>
+			<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+			<INBOX-BINDINGS>
+				<INBOX-BINDING dkey="receiveLine">
+					<DVALUE xsi:type="string">sendLine1</DVALUE>
+				</INBOX-BINDING>
+			</INBOX-BINDINGS>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="d70f0919-21dc-4a51-9d85-f8130e42a569" xsi:type="tsParallelPackage">
+			<PACKAGE-REFERENCE xsi:type="expressionref">
+				<PATH-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Receiver2.pkg</VALUE>
+				</PATH-EXPRESSION>
+			</PACKAGE-REFERENCE>
+			<PARAM-ASSIGNMENTS>
+				<ASSIGNMENT dkey="maxLoop">
+					<DVALUE xsi:type="varBaseExpression">
+						<NAME xsi:type="string">sendCountInput</NAME>
+					</DVALUE>
+				</ASSIGNMENT>
+			</PARAM-ASSIGNMENTS>
+			<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+			<INBOX-BINDINGS>
+				<INBOX-BINDING dkey="receiveLine">
+					<DVALUE xsi:type="string">sendLine2</DVALUE>
+				</INBOX-BINDING>
+			</INBOX-BINDINGS>
+		</TESTSTEP>
+		<TESTSTEP id="285f0a43-773e-4fdd-961f-c9e51b72aa69" name="TsReactOn" xsi:type="utility-83517ac0-9f53-11dd-9c62-001b24fa84bf">
+			<TESTSTEP id="f21013e7-8bfe-4e58-ae87-5a54d3c2b72f" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="afterCondition">
+					<time format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">8</VALUE>
+					</time>
+				</ON-CONDITION>
+				<TESTSTEP format-rev="3" id="adfa7607-3d78-446a-bea1-2feffb5580ef" xsi:type="tsParallelPackage">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="loopCounter">
+							<DVALUE xsi:type="string">sendCountOutput</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<PACKAGE-REFERENCE xsi:type="expressionref">
+						<PATH-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="string">Sender.pkg</VALUE>
+						</PATH-EXPRESSION>
+					</PACKAGE-REFERENCE>
+					<PARAM-ASSIGNMENTS>
+						<ASSIGNMENT dkey="maxLoop">
+							<DVALUE xsi:type="varBaseExpression">
+								<NAME xsi:type="string">sendCountInput</NAME>
+							</DVALUE>
+						</ASSIGNMENT>
+					</PARAM-ASSIGNMENTS>
+					<ALTERNATIVE-MAPPING-SPACE format-rev="1" xsi:type="mappingSpace"/>
+					<OUTBOX-BINDINGS>
+						<OUTBOX-BINDING dkey="sendLine">
+							<DVALUE xsi:type="string">receiveLine</DVALUE>
+						</OUTBOX-BINDING>
+					</OUTBOX-BINDINGS>
+				</TESTSTEP>
+			</TESTSTEP>
+			<TESTSTEP id="01287a00-1104-40ce-b2d4-997469cd1d7c" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="inboxCondition">
+					<INBOX-NAME xsi:type="string">receiveLine</INBOX-NAME>
+				</ON-CONDITION>
+				<TESTSTEP format-rev="3" id="97aeaf00-b73c-4a72-8c63-8554209e953a" name="TsInboxFetch" xsi:type="utility-179c75a3-4fef-11dc-8fdd-0013728784ee">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="inbox">
+							<DVALUE xsi:type="string">receiveLine</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<SAVE-IN xsi:type="varBaseExpression">
+						<NAME xsi:type="string">receivedData</NAME>
+					</SAVE-IN>
+				</TESTSTEP>
+				<TESTSTEP id="96c9df45-c03d-4f7d-b2fe-eb0591d9da06" name="TsOutboxPost" xsi:type="utility-179c75a2-4fef-11dc-8fdd-0013728784ee">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="outbox">
+							<DVALUE xsi:type="string">sendLine1</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<MESSAGE xsi:type="varBaseExpression">
+						<NAME xsi:type="string">receivedData</NAME>
+					</MESSAGE>
+				</TESTSTEP>
+				<TESTSTEP id="88f1bfe4-d038-449b-a881-d1a0bee6c6ea" name="TsOutboxPost" xsi:type="utility-179c75a2-4fef-11dc-8fdd-0013728784ee">
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="outbox">
+							<DVALUE xsi:type="string">sendLine2</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<MESSAGE xsi:type="varBaseExpression">
+						<NAME xsi:type="string">receivedData</NAME>
+					</MESSAGE>
+				</TESTSTEP>
+			</TESTSTEP>
+			<TESTSTEP id="ca13f22b-ffbe-43c7-a706-995a4919e0af" xsi:type="OnNode">
+				<ON-CONDITION xsi:type="futureCondition">
+					<VAR-NAME xsi:type="string">sendCountOutput</VAR-NAME>
+				</ON-CONDITION>
+				<TESTSTEP id="cc1565a7-cf8f-4c48-87f8-3aa4d3f21324" name="TsBreak" xsi:type="utility-11b0144f-4e4f-11e0-b968-1c659df540cc"/>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP id="2ed687b8-adb3-4d2e-ad9b-967e00017731" name="TsLoop" xsi:type="utility-3da58cf0-4fef-11dc-be56-0013728784ee">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="default">
+					<DVALUE xsi:type="string">loopCounter</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<LOOP-COUNT xsi:type="varBaseExpression">
+				<NAME xsi:type="string">sendCountInput</NAME>
+			</LOOP-COUNT>
+		</TESTSTEP>
+		<TESTSTEP id="0c648fe5-11b0-4a75-b740-495784aa4882" name="TsIfThenElse" xsi:type="utility-3609c41e-4fef-11dc-899a-0013728784ee">
+			<CONDITION xsi:type="compareOpBaseExpression">
+				<NAME xsi:type="string">==</NAME>
+				<FIRST-COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">sendCountInput</NAME>
+				</FIRST-COMPONENT>
+				<SECOND-COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">sendCountOutput</NAME>
+				</SECOND-COMPONENT>
+			</CONDITION>
+			<THEN id="b5af2ae8-61f4-47a8-bfda-1ce111c46d51" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="1" id="2e20b275-65fb-4416-897d-f29ba0ff990a" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">sending counter coincides with expectation</VALUE>
+					</COMMENT-EXPRESSION>
+					<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+				</TESTSTEP>
+			</THEN>
+			<ELSE id="3b8b1a99-5710-445b-b33b-1e3511bfd083" xsi:type="ifThenElseNode">
+				<TESTSTEP format-rev="1" id="6fed9f8c-41b3-4fae-9849-086a008cd8fe" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+					<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">sending counter does not coincide with expectation</VALUE>
+					</COMMENT-EXPRESSION>
+					<COMMENT-VERDICT xsi:type="string">FAILED</COMMENT-VERDICT>
+				</TESTSTEP>
+			</ELSE>
+		</TESTSTEP>
+		<TESTSTEP format-rev="1" id="cfd8b20e-86cf-43d4-8c77-be33ce3a385d" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+			<COMMENT-EXPRESSION format-rev="1" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">main package test steps completed</VALUE>
+			</COMMENT-EXPRESSION>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

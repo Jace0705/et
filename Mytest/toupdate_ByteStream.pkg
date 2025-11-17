@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.1.0.147157+fa5f5e045e43" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">main</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="byteStream">
+					<CONTENT xsi:type="string">5B:2B:2C:2B</CONTENT>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">Unnamed_1</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="byteStream">
+					<CONTENT xsi:type="string">2B</CONTENT>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">list1</NAME>
+			<DESCRIPTION xsi:type="string"/>
+			<DEFAULT-VALUE xsi:type="pyObject">
+				<OBJECT xsi:type="string">[]</OBJECT>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="e8864ee6-657a-44b6-b171-c709e8916023" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">返回字节流中找到另一个字节流的最低索引</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Find</ATTR-NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">Unnamed_1</NAME>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">Find</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="1755f871-5137-40ea-a64f-30aa74c2ea0a" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">返回另一个字节流的出现次数</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Count</ATTR-NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">Unnamed_1</NAME>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">count</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="af12c9f4-67fa-445f-984a-80730262c48c" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">所给字节按Intel(小端)格式排序:0x1234变成34:12</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">FromIntelWordList</ATTR-NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="listOrTupleBaseExpression">
+						<IS-LIST xsi:type="boolean">True</IS-LIST>
+						<EXPRESSION-LIST>
+							<BASE-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">0x3478</VALUE>
+							</BASE-EXPRESSION>
+						</EXPRESSION-LIST>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">FromIntelWordList</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="55636a54-9d1f-4650-a719-7f0223c33061" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">每对字节被转换成一个字:12:34变成0x3412。字节流必须包含偶数字节。会被直接转换为十进制</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<VARIABLE-REFS>
+				<VARIABLE-NAME dkey="default">
+					<DVALUE xsi:type="string">list1</DVALUE>
+				</VARIABLE-NAME>
+			</VARIABLE-REFS>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">IntelWordList</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">IntelWordList</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="6353d660-517a-4ff9-b6c7-6a9d20c1e237" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">hex</NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="binaryOpBaseExpression">
+						<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+						<FIRST-COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">list1</NAME>
+						</FIRST-COMPONENT>
+						<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">0</VALUE>
+						</SECOND-COMPONENT>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="7e65e863-120a-488e-925c-20017f6f463b" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="varBaseExpression">
+					<NAME xsi:type="string">hex</NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="binaryOpBaseExpression">
+						<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+						<FIRST-COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">list1</NAME>
+						</FIRST-COMPONENT>
+						<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</SECOND-COMPONENT>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="c2fedd31-764f-46bc-9020-5a1812eda127" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">FromRawString</ATTR-NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">Unnamed_1</NAME>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="91f8f819-52d2-47b3-baac-6d7412626548" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">返回此字节流的二进制字符串表示形式。每个字节被转换为表示它的ascii字符。</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">RawString</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="8f10fbdf-a0cf-4ee3-adac-b0b6dbc28709" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">为字节流创建字符串表示形式。每个字节显示为十六进制数(前导0x)，并用空格分隔。</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">HexString</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">HexString</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="acad3eb9-ca97-4132-93b4-fd3c1d4bcc07" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">使用Intel字节顺序提取从startBit开始，长度为bitLen的比特流。</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">IBits</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">IBits</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="734d9fb0-62a7-47a3-8000-e766507d7667" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">类似Find()，但如果没有找到其他字节流则引发ValueError</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Index</ATTR-NAME>
+				</COMPONENT>
+				<ARGUMENTS>
+					<ARGUMENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">Unnamed_1</NAME>
+					</ARGUMENT>
+				</ARGUMENTS>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">Index</INSTANCE-NAME>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="66da1147-3241-4984-8034-a84fb1b31778" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+			<COMMENT-I18N xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">将字节流转换为一个正整数列表(&lt;256)</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</COMMENT-I18N>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<FORMULA xsi:type="functionBaseExpression">
+				<COMPONENT xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">main</NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Ints</ATTR-NAME>
+				</COMPONENT>
+			</FORMULA>
+			<INSTANCE-NAME xsi:type="string">Ints</INSTANCE-NAME>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

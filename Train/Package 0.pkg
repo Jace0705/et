@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2025.2.2.165893+e9165eacde9f" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Designer</NAME>
+				<VALUE xsi:type="string">yy</VALUE>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">StartButton</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="enum">
+				<DATA xsi:type="integer">1</DATA>
+				<VALUE-MAP>
+					<ELEMENT xsi:type="enumEntry">
+						<NUMBER xsi:type="integer">1</NUMBER>
+						<TEXT xsi:type="string">点火</TEXT>
+						<NUMBERSTRING xsi:type="string">1</NUMBERSTRING>
+					</ELEMENT>
+					<ELEMENT xsi:type="enumEntry">
+						<NUMBER xsi:type="integer">-1</NUMBER>
+						<TEXT xsi:type="string">熄火</TEXT>
+						<NUMBERSTRING xsi:type="string">-1</NUMBERSTRING>
+					</ELEMENT>
+				</VALUE-MAP>
+				<VALUE-SET xsi:type="boolean">True</VALUE-SET>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" in="true" xsi:type="variable">
+			<NAME xsi:type="string">V</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">1</DATA>
+				<TEXTDATA xsi:type="string">1</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">CTRL_VEH/BrakePedal [%]/Value</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">Model Root/CTRL_VEH/BrakePedal [%]/Value</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">uint(32)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">CTRL_VEH/StarterButton [-1|0|1]/Value</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">Model Root/CTRL_VEH/StarterButton [-1|0|1]/Value</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">uint(32)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">Engine-Control/VehTrStby</ID>
+			<XACCESS xsi:type="xaMeasValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<ECU-KEY xsi:type="string">Engine-Control</ECU-KEY>
+				<LABEL xsi:type="string">VehTrStby</LABEL>
+				<RASTER xsi:type="string">Port-Default</RASTER>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP id="75592843-e690-4480-beed-993ee971527a" xsi:type="tsWrite">
+			<MAPPING-REF xsi:type="string">BP</MAPPING-REF>
+			<VALUE xsi:type="expressionValue">
+				<DATA format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">20</VALUE>
+				</DATA>
+			</VALUE>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+		<TESTSTEP id="4e3f753b-ebf1-4d2b-a4f8-0fc393631bf3" xsi:type="tsWrite">
+			<MAPPING-REF xsi:type="string">CTRL_VEH/StarterButton [-1|0|1]/Value</MAPPING-REF>
+			<VALUE xsi:type="expressionValue">
+				<DATA xsi:type="varBaseExpression">
+					<NAME xsi:type="string">StartButton</NAME>
+				</DATA>
+			</VALUE>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+		<TESTSTEP id="66d0f693-dbdb-41e5-8ccb-a0ae1c2255c5" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">250</VALUE>
+			</TIME>
+		</TESTSTEP>
+		<TESTSTEP id="0ca35e28-d16a-4d6f-8484-83da3b2ae896" xsi:type="tsWrite">
+			<MAPPING-REF xsi:type="string">CTRL_VEH/StarterButton [-1|0|1]/Value</MAPPING-REF>
+			<VALUE xsi:type="expressionValue">
+				<DATA format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">0</VALUE>
+				</DATA>
+			</VALUE>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+		<TESTSTEP id="29c540da-148f-4f88-bce5-a10912b7fe73" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">3</VALUE>
+			</TIME>
+			<UNIT xsi:type="string">s</UNIT>
+		</TESTSTEP>
+		<TESTSTEP id="47278344-4372-474a-9bc7-ad3ea1e18ba1" xsi:type="tsWrite">
+			<MAPPING-REF xsi:type="string">CTRL_VEH/BrakePedal [%]/Value</MAPPING-REF>
+			<VALUE xsi:type="expressionValue">
+				<DATA format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">0</VALUE>
+				</DATA>
+			</VALUE>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+		<TESTSTEP id="4933d021-e5dd-4c15-9953-f3889eb7bf3d" xsi:type="tsRead">
+			<MAPPING-REF xsi:type="string">Engine-Control/VehTrStby</MAPPING-REF>
+			<EXPECTATION xsi:type="timelessOption">
+				<EXPRESSION xsi:type="builtNumericExpression">
+					<RELATION xsi:type="string">==</RELATION>
+					<VALUE xsi:type="varBaseExpression">
+						<NAME xsi:type="string">V</NAME>
+					</VALUE>
+				</EXPRESSION>
+			</EXPECTATION>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<Z-UNIT xsi:type="string">u_none</Z-UNIT>
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

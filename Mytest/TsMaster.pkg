@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2025.2.2.165893+e9165eacde9f" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">SysVarName</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">OnOff_1</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">SignalName</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<COMPLEX-DATA xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">0/TEST_bmw/Engine/EngineState/EngineSpeed</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</COMPLEX-DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">AValue</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">3</DATA>
+				<TEXTDATA xsi:type="string">3</TEXTDATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">loopCounter</NAME>
+			<DEFAULT-VALUE format-rev="1" xsi:type="value">
+				<DATA xsi:type="integer">0</DATA>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.active_rpc_client</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">active_rpc_client</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.create_rpc_client</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">create_rpc_client</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.get_cansignal_value</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">get_cansignal_value</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.get_sysvar_value</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">get_sysvar_value</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.set_cansignal_value</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">set_cansignal_value</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.set_sysvar_value</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">set_sysvar_value</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.start_simulation</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">start_simulation</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">TOSUN: TSMaster SIL Kit01.stop_simulation</ID>
+			<XACCESS xsi:type="xaJob">
+				<TOOL-ID xsi:type="string">TOSUN: TSMaster SIL Kit01</TOOL-ID>
+				<JOB-NAME xsi:type="string">stop_simulation</JOB-NAME>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="b8040d83-79af-4821-b8e8-1533d633de43" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">建立连接，第一次连必须要加（）</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="4" id="1a838d05-be5e-448f-9381-d09af82df803" xsi:type="tsJob">
+				<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.create_rpc_client</MAPPING-REF>
+				<JOB-PARAMETER xsi:type="tsJobParameter">
+					<NAME xsi:type="string">ATSMasterProjectName</NAME>
+					<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">TSMaster</VALUE>
+					</EXPRESSION>
+				</JOB-PARAMETER>
+			</TESTSTEP>
+			<TESTSTEP format-rev="4" id="4e72a5b4-50d6-4efc-8eca-c50cbbf256b9" xsi:type="tsJob">
+				<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.active_rpc_client</MAPPING-REF>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="b661c90d-74be-416e-b084-59884dd9b563" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">开启观测</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="4" id="cb1ca26f-5b41-4405-8827-2709a7234e58" xsi:type="tsJob">
+				<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.start_simulation</MAPPING-REF>
+			</TESTSTEP>
+			<TESTSTEP id="c53f22f5-36c3-4bd8-9f6b-11fee32abd5a" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">5</VALUE>
+				</TIME>
+				<UNIT xsi:type="string">s</UNIT>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="6fe197e2-9cd1-4870-8f90-ab8aea49c810" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">发送</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="3" id="a9b8b009-d58f-48cf-80f0-018cd3020d87" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+				<ACTION xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">通过CAN信号路径发送</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</ACTION>
+				<ENABLED xsi:type="boolean">False</ENABLED>
+				<TESTSTEP id="bff1b1f1-54f9-4faa-9954-57e7ddd48806" name="TsLoop" xsi:type="utility-3da58cf0-4fef-11dc-be56-0013728784ee">
+					<TESTSTEP format-rev="4" id="99e33181-f218-4561-bae7-4dfa529b4d70" xsi:type="tsJob">
+						<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.set_cansignal_value</MAPPING-REF>
+						<JOB-PARAMETER xsi:type="tsJobParameter">
+							<NAME xsi:type="string">AValue</NAME>
+							<EXPRESSION xsi:type="varBaseExpression">
+								<NAME xsi:type="string">AValue</NAME>
+							</EXPRESSION>
+						</JOB-PARAMETER>
+						<JOB-PARAMETER xsi:type="tsJobParameter">
+							<NAME xsi:type="string">SignalName</NAME>
+							<EXPRESSION xsi:type="varBaseExpression">
+								<NAME xsi:type="string">SignalName</NAME>
+							</EXPRESSION>
+						</JOB-PARAMETER>
+					</TESTSTEP>
+					<TESTSTEP id="57127c02-76eb-49fd-b289-c6aa7407df62" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+						<TIME format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">100</VALUE>
+						</TIME>
+					</TESTSTEP>
+					<TESTSTEP format-rev="4" id="559703d5-bc2e-4a2e-995d-48b554a06466" xsi:type="tsJob">
+						<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.get_cansignal_value</MAPPING-REF>
+						<JOB-PARAMETER xsi:type="tsJobParameter">
+							<NAME xsi:type="string">SignalName</NAME>
+							<EXPRESSION xsi:type="varBaseExpression">
+								<NAME xsi:type="string">SignalName</NAME>
+							</EXPRESSION>
+						</JOB-PARAMETER>
+						<EXPECTATION-OPTION xsi:type="timelessOption">
+							<EXPRESSION xsi:type="manualExpression">
+								<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+									<NAME xsi:type="string">==</NAME>
+									<FIRST-COMPONENT xsi:type="binaryOpBaseExpression">
+										<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+										<FIRST-COMPONENT xsi:type="varBaseExpression">
+											<NAME xsi:type="string">value</NAME>
+										</FIRST-COMPONENT>
+										<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+											<VALUE xsi:type="integer">1</VALUE>
+										</SECOND-COMPONENT>
+									</FIRST-COMPONENT>
+									<SECOND-COMPONENT xsi:type="varBaseExpression">
+										<NAME xsi:type="string">AValue</NAME>
+									</SECOND-COMPONENT>
+								</BASE-EXPRESSION>
+							</EXPRESSION>
+						</EXPECTATION-OPTION>
+					</TESTSTEP>
+					<TESTSTEP format-rev="3" id="2733fa7a-26e2-48c2-a553-8c99d29c497f" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+						<VARIABLE-REFS>
+							<VARIABLE-NAME dkey="default">
+								<DVALUE xsi:type="string">AValue</DVALUE>
+							</VARIABLE-NAME>
+						</VARIABLE-REFS>
+						<FORMULA xsi:type="binaryOpBaseExpression">
+							<NAME xsi:type="string">BINARY_ADD</NAME>
+							<FIRST-COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">loopCounter</NAME>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">1</VALUE>
+							</SECOND-COMPONENT>
+						</FORMULA>
+					</TESTSTEP>
+					<VARIABLE-REFS>
+						<VARIABLE-NAME dkey="default">
+							<DVALUE xsi:type="string">loopCounter</DVALUE>
+						</VARIABLE-NAME>
+					</VARIABLE-REFS>
+					<LOOP-COUNT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">100</VALUE>
+					</LOOP-COUNT>
+					<START-VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">0</VALUE>
+					</START-VALUE>
+					<STEP-SIZE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">1</VALUE>
+					</STEP-SIZE>
+				</TESTSTEP>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="2c92c494-260d-4728-ac6b-0ea82742b55e" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+				<ACTION xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">通过映射系统变量发送</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</ACTION>
+				<TESTSTEP format-rev="4" id="b7239ed0-af52-4f7d-be82-72337e66e049" xsi:type="tsJob">
+					<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.set_sysvar_value</MAPPING-REF>
+					<JOB-PARAMETER xsi:type="tsJobParameter">
+						<NAME xsi:type="string">AValue</NAME>
+						<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">1</VALUE>
+						</EXPRESSION>
+					</JOB-PARAMETER>
+					<JOB-PARAMETER xsi:type="tsJobParameter">
+						<NAME xsi:type="string">SysVarName</NAME>
+						<EXPRESSION xsi:type="varBaseExpression">
+							<NAME xsi:type="string">SysVarName</NAME>
+						</EXPRESSION>
+					</JOB-PARAMETER>
+				</TESTSTEP>
+				<TESTSTEP id="e97ee9cc-239d-43d9-b1af-dd13279d3145" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+					<TIME format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">100</VALUE>
+					</TIME>
+				</TESTSTEP>
+				<TESTSTEP format-rev="4" id="70503cac-3934-4828-80df-dacacf3cf006" xsi:type="tsJob">
+					<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.get_sysvar_value</MAPPING-REF>
+					<JOB-PARAMETER xsi:type="tsJobParameter">
+						<NAME xsi:type="string">SysVarName</NAME>
+						<EXPRESSION xsi:type="varBaseExpression">
+							<NAME xsi:type="string">SysVarName</NAME>
+						</EXPRESSION>
+					</JOB-PARAMETER>
+					<EXPECTATION-OPTION xsi:type="timelessOption">
+						<EXPRESSION xsi:type="manualExpression">
+							<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+								<NAME xsi:type="string">==</NAME>
+								<FIRST-COMPONENT xsi:type="binaryOpBaseExpression">
+									<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+									<FIRST-COMPONENT xsi:type="varBaseExpression">
+										<NAME xsi:type="string">value</NAME>
+									</FIRST-COMPONENT>
+									<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="integer">1</VALUE>
+									</SECOND-COMPONENT>
+								</FIRST-COMPONENT>
+								<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="integer">1</VALUE>
+								</SECOND-COMPONENT>
+							</BASE-EXPRESSION>
+						</EXPRESSION>
+					</EXPECTATION-OPTION>
+				</TESTSTEP>
+				<TESTSTEP format-rev="3" id="4f1b4395-6504-43a5-ab39-ce927abbc91c" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+					<ACTION xsi:type="I18NItem">
+						<MULTILANGDATA>
+							<ELEMENT dkey="en_US">
+								<DVALUE xsi:type="string">写入枚举值（需要提前将系统变量的类型设置为String）</DVALUE>
+							</ELEMENT>
+						</MULTILANGDATA>
+						<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+					</ACTION>
+					<ENABLED xsi:type="boolean">False</ENABLED>
+					<TESTSTEP format-rev="4" id="66055275-9e6f-47bf-aa5e-74bcef8e8c11" xsi:type="tsJob">
+						<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.set_sysvar_value</MAPPING-REF>
+						<JOB-PARAMETER xsi:type="tsJobParameter">
+							<NAME xsi:type="string">AValue</NAME>
+							<EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="string">OFF</VALUE>
+							</EXPRESSION>
+						</JOB-PARAMETER>
+						<JOB-PARAMETER xsi:type="tsJobParameter">
+							<NAME xsi:type="string">SysVarName</NAME>
+							<EXPRESSION xsi:type="varBaseExpression">
+								<NAME xsi:type="string">SysVarName</NAME>
+							</EXPRESSION>
+						</JOB-PARAMETER>
+					</TESTSTEP>
+					<TESTSTEP id="06a57a80-f1f7-404f-8550-8c8cdcfa4882" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+						<TIME format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">100</VALUE>
+						</TIME>
+					</TESTSTEP>
+					<TESTSTEP format-rev="4" id="8c1f20fb-9e49-42d3-aceb-2dccb4fc9c94" xsi:type="tsJob">
+						<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.get_sysvar_value</MAPPING-REF>
+						<JOB-PARAMETER xsi:type="tsJobParameter">
+							<NAME xsi:type="string">SysVarName</NAME>
+							<EXPRESSION xsi:type="varBaseExpression">
+								<NAME xsi:type="string">SysVarName</NAME>
+							</EXPRESSION>
+						</JOB-PARAMETER>
+						<EXPECTATION-OPTION xsi:type="timelessOption">
+							<EXPRESSION xsi:type="manualExpression">
+								<BASE-EXPRESSION xsi:type="compareOpBaseExpression">
+									<NAME xsi:type="string">==</NAME>
+									<FIRST-COMPONENT xsi:type="binaryOpBaseExpression">
+										<NAME xsi:type="string">BINARY_SUBSCR</NAME>
+										<FIRST-COMPONENT xsi:type="varBaseExpression">
+											<NAME xsi:type="string">value</NAME>
+										</FIRST-COMPONENT>
+										<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+											<VALUE xsi:type="integer">1</VALUE>
+										</SECOND-COMPONENT>
+									</FIRST-COMPONENT>
+									<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+										<VALUE xsi:type="integer">0</VALUE>
+									</SECOND-COMPONENT>
+								</BASE-EXPRESSION>
+							</EXPRESSION>
+						</EXPECTATION-OPTION>
+					</TESTSTEP>
+				</TESTSTEP>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="ee5cca10-0b20-431b-8e95-9c054a8370cc" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">停止观测</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="4" id="f008707b-22c9-4983-9160-aaa27ef16ee6" xsi:type="tsJob">
+				<MAPPING-REF xsi:type="string">TOSUN: TSMaster SIL Kit01.stop_simulation</MAPPING-REF>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

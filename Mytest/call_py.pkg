@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2025.2.2.165893+e9165eacde9f" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">CAL</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">cal</NAME>
+			<DEFAULT-VALUE xsi:type="function">
+				<CODE xsi:type="string">import subprocess
+# function must be named 'func'
+def func(a,b):
+    a=str(a)
+    b=str(b)
+    p=subprocess.run([r'D:\software\Python\3.12.9\python.exe',r&quot;D:\ET_Data\A_ecu.test\UserPyModules\Calculator.py&quot;,a,b],
+                                                                      stdout=subprocess.PIPE,
+                                                                      stderr=subprocess.PIPE,
+                                                                      creationflags=0x08000000)
+    stdout=p.stdout
+    stderr=p.stderr
+    if p.returncode!=0:
+        print(stdout)
+        print(stderr)
+    return float(stdout.decode('utf-8').strip('\r\n'))
+
+</CODE>
+			</DEFAULT-VALUE>
+		</VARIABLE>
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">res</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="14cc9970-69df-4c79-be1a-41194fd1f24a" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">1.直接调函数</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="3" id="1417a83c-57d7-46f7-b503-b8ddcc0713ac" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">user</NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">add1</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">2</VALUE>
+						</ARGUMENT>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">3</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">5</VALUE>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="3e8a79e4-d7b0-4913-9263-737a67f3be16" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">2.直接调类里面的函数</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="3" id="e980dce5-ac74-4810-9a39-d1f6ccda921a" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="attributeBaseExpression">
+								<COMPONENT xsi:type="varBaseExpression">
+									<NAME xsi:type="string">user</NAME>
+								</COMPONENT>
+								<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">add2</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">2</VALUE>
+						</ARGUMENT>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">3</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">5</VALUE>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="84f7fbbe-4b6e-4968-968f-3d5b01fa317a" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="attributeBaseExpression">
+							<COMPONENT xsi:type="attributeBaseExpression">
+								<COMPONENT xsi:type="varBaseExpression">
+									<NAME xsi:type="string">user</NAME>
+								</COMPONENT>
+								<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+							</COMPONENT>
+							<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">subtract</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">2</VALUE>
+						</ARGUMENT>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">3</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE xsi:type="unaryOpBaseExpression">
+							<NAME xsi:type="string">UNARY_NEGATIVE</NAME>
+							<COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">1</VALUE>
+							</COMPONENT>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="b623a317-2b5f-468b-938c-d350a7f665c0" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">3.调类里面的函数</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="3" id="6986ff90-2941-48b4-9356-3d9d7e213c4d" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">CAL</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<FORMULA xsi:type="attributeBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">user</NAME>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+					</COMPONENT>
+					<ATTR-NAME xsi:type="string">Calculator</ATTR-NAME>
+				</FORMULA>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="00438350-19f7-44e7-a498-93e24bf7bdb4" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="attributeBaseExpression">
+						<COMPONENT xsi:type="functionBaseExpression">
+							<COMPONENT xsi:type="varBaseExpression">
+								<NAME xsi:type="string">CAL</NAME>
+							</COMPONENT>
+						</COMPONENT>
+						<ATTR-NAME xsi:type="string">multiply</ATTR-NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">2</VALUE>
+						</ARGUMENT>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">3</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">6</VALUE>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="5cecdcb1-4775-402e-a4eb-62a0a433286e" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">4.通过subprocess在外部运行脚本并传参</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="3" id="f3f8d5ac-7a22-4928-9129-e36ebf09f573" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">res</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">cal</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">2</VALUE>
+						</ARGUMENT>
+						<ARGUMENT format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">3</VALUE>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+				<EXPECTATION-OPTION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">6</VALUE>
+						</VALUE>
+					</EXPRESSION>
+				</EXPECTATION-OPTION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="3" id="923e79e7-8707-4bca-8b3f-63e212c65d09" name="TsCalculation" xsi:type="utility-4115fa00-5f3c-11df-8a53-001c233b3528">
+				<FORMULA xsi:type="functionBaseExpression">
+					<COMPONENT xsi:type="varBaseExpression">
+						<NAME xsi:type="string">type</NAME>
+					</COMPONENT>
+					<ARGUMENTS>
+						<ARGUMENT xsi:type="varBaseExpression">
+							<NAME xsi:type="string">res</NAME>
+						</ARGUMENT>
+					</ARGUMENTS>
+				</FORMULA>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

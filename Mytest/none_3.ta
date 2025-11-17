@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ANALYSIS-PACKAGE prog-version="2024.1.0.147701+5773b28903a4" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test analysisPackage.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">BP</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">CTRL_VEH/DriveMode</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">DR</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">ELECTRIC_POWER_TRAIN/VEH_DATA/VEH_DATA/VEHICLE_VELOCITY</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">Engine-Control/speed</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">STATUS_BAT/StateOfCharge [%]/Value</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">STATUS_VEH/VehicleVelocity [kmh]/In1</ID>
+			<XACCESS xsi:type="xaReadWriteValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TRACE-ANALYSIS format-rev="3" uuid="a87f2d70b34711edba5192d5c404268b" xsi:type="traceAnalysis">
+		<NAME xsi:type="string">none_3</NAME>
+		<ANALYSISITEM format-rev="1" uuid="a87f2d71b34711ed94f292d5c404268b" xsi:type="episode">
+			<NAME xsi:type="string">New episode</NAME>
+			<ANALYSISITEM format-rev="4" uuid="b157eac3b34711edb5a292d5c404268b" xsi:type="plotItem">
+				<NAME xsi:type="string">Plot</NAME>
+				<SUB-PLOTS>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">common</TYPE>
+						<ENTITIES/>
+						<AXES/>
+					</SUB-PLOT>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">separate</TYPE>
+						<ENTITIES>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">BP</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">DriveMode</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">DR</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">ELECTRIC_POWER_TRAIN_VEH_DATA_VEH_DATA_VEHICLE_VELOCITY</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">Engine_Control_speed</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">STATUS_VEH_VehicleVelocity__kmh__In1</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+							<ENTITY format-rev="2" isTraceStepSignal="False" xsi:type="plotSignalEntity">
+								<NAME xsi:type="string">STATUS_BAT_StateOfCharge_____Value</NAME>
+								<AXIS xsi:type="integer">0</AXIS>
+							</ENTITY>
+						</ENTITIES>
+						<AXES>
+							<AXIS xsi:type="plotAxis"/>
+						</AXES>
+					</SUB-PLOT>
+					<SUB-PLOT format-rev="1" xsi:type="plotSubPlot">
+						<TYPE xsi:type="string">common</TYPE>
+						<ENTITIES/>
+						<AXES/>
+					</SUB-PLOT>
+				</SUB-PLOTS>
+				<UNUSED-SIGNALS/>
+				<SUB-CONFIG-OVERVIEW xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NONE</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-OVERVIEW>
+				<SUB-CONFIG-PARENT-CONTEXT xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NEVER</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-PARENT-CONTEXT>
+				<SUB-CONFIG-DETAILS xsi:type="plotSubConfig">
+					<CONDITION xsi:type="string">NEVER</CONDITION>
+					<MAX-NUMBER format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">5</VALUE>
+					</MAX-NUMBER>
+					<EXPAND-XLIMITS-LEFT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-LEFT>
+					<EXPAND-XLIMITS-RIGHT format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="float">0.5</VALUE>
+					</EXPAND-XLIMITS-RIGHT>
+				</SUB-CONFIG-DETAILS>
+				<SIGNAL-NAME-TYPE xsi:type="string">generic</SIGNAL-NAME-TYPE>
+				<LEGEND-LOCATION xsi:type="integer">11</LEGEND-LOCATION>
+			</ANALYSISITEM>
+		</ANALYSISITEM>
+		<VIRTUAL-SIGNALS-MANAGER xsi:type="virtualSignalsManager">
+			<VIRTUAL-SIGNALS>
+				<VIRTUAL-SIGNAL uuid="ad4b5b7fb34711ed89c792d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">BP</NAME>
+					<MAPPING-NAME xsi:type="string">BP</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="ad521216b34711ed842992d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">DriveMode</NAME>
+					<MAPPING-NAME xsi:type="string">CTRL_VEH/DriveMode</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="ad593d9cb34711ed8b4392d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">DR</NAME>
+					<MAPPING-NAME xsi:type="string">DR</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="ad60589fb34711ed8b3992d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">ELECTRIC_POWER_TRAIN_VEH_DATA_VEH_DATA_VEHICLE_VELOCITY</NAME>
+					<MAPPING-NAME xsi:type="string">ELECTRIC_POWER_TRAIN/VEH_DATA/VEH_DATA/VEHICLE_VELOCITY</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="ad676195b34711ed8d9392d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">Engine_Control_speed</NAME>
+					<MAPPING-NAME xsi:type="string">Engine-Control/speed</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="ad6ec4bbb34711ed931792d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">STATUS_BAT_StateOfCharge_____Value</NAME>
+					<MAPPING-NAME xsi:type="string">STATUS_BAT/StateOfCharge [%]/Value</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+				<VIRTUAL-SIGNAL uuid="ad73a9a2b34711eda0fc92d5c404268b" xsi:type="virtualSessionSignal">
+					<NAME xsi:type="string">STATUS_VEH_VehicleVelocity__kmh__In1</NAME>
+					<MAPPING-NAME xsi:type="string">STATUS_VEH/VehicleVelocity [kmh]/In1</MAPPING-NAME>
+					<EVENT-TYPE xsi:type="string">PHY</EVENT-TYPE>
+				</VIRTUAL-SIGNAL>
+			</VIRTUAL-SIGNALS>
+		</VIRTUAL-SIGNALS-MANAGER>
+	</TRACE-ANALYSIS>
+</ANALYSIS-PACKAGE>

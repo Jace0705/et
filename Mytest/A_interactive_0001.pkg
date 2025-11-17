@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.1.0.147701+5773b28903a4" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<ATTRIBUTES>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Assignee(s)</NAME>
+				<VALUE xsi:type="string"/>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Author</NAME>
+				<VALUE xsi:type="string">System Administrator</VALUE>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Categories</NAME>
+				<VALUE xsi:type="string"/>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Initial Estimate</NAME>
+				<VALUE xsi:type="string"/>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Polarion Revision</NAME>
+				<VALUE xsi:type="string">12</VALUE>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Severity</NAME>
+				<VALUE xsi:type="string">Transition</VALUE>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Status</NAME>
+				<VALUE xsi:type="string">Inactive</VALUE>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Test Case ID</NAME>
+				<VALUE xsi:type="string"/>
+			</ATTRIBUTE>
+			<ATTRIBUTE xsi:type="attributeInst">
+				<NAME xsi:type="string">Test Type</NAME>
+				<VALUE xsi:type="string"/>
+			</ATTRIBUTE>
+		</ATTRIBUTES>
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<VARIABLES xsi:type="variableContainer">
+		<VARIABLE format-rev="1" xsi:type="variable">
+			<NAME xsi:type="string">option</NAME>
+			<DEFAULT-VALUE xsi:type="undefined"/>
+		</VARIABLE>
+	</VARIABLES>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">STATUS_BAT/StateOfCharge [%]/Value</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<MODEL-KEY xsi:type="string">Plant model</MODEL-KEY>
+				<VARIABLE-PATH xsi:type="string">Model Root/STATUS_BAT/StateOfCharge [%]/Value</VARIABLE-PATH>
+				<VARIABLE-TYPE xsi:type="string">flt(64,IEEE)*</VARIABLE-TYPE>
+			</XACCESS>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TM-INFO format-rev="1" xsi:type="testManagementInfo">
+		<TESTSCRIPT-ID xsi:type="string">ECU.-513</TESTSCRIPT-ID>
+	</TM-INFO>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="8ff989c8-1dee-4c08-a611-9565697e48b9" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">输入指令</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<PARAMETER xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">&quot;C:\Users\12534\Pictures\图图图片\wallhaven-j8e7q5_2560x1600.png&quot;</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</PARAMETER>
+			<EXPECTATION-VALUE xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">0/1</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</EXPECTATION-VALUE>
+			<USER-INTERACTION xsi:type="boolean">True</USER-INTERACTION>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<TESTSTEP id="d89cab0b-c5d4-43aa-bebc-94900fc6a9d5" name="TsWaitForUser" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ef">
+				<MAX-WAIT-TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">5000</VALUE>
+				</MAX-WAIT-TIME>
+				<INFO-TEXT format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">输入指令</VALUE>
+				</INFO-TEXT>
+				<VARIABLE-REFS>
+					<VARIABLE-NAME dkey="default">
+						<DVALUE xsi:type="string">option</DVALUE>
+					</VARIABLE-NAME>
+				</VARIABLE-REFS>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="ef2940bd-c298-4d0e-bfc5-0fa704d4c100" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">判断</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<PARAMETER xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">sssss</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</PARAMETER>
+			<EXPECTATION-VALUE xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">100</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</EXPECTATION-VALUE>
+			<USER-INTERACTION xsi:type="boolean">True</USER-INTERACTION>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<TESTSTEP id="fad5f976-3a2a-4a2e-bed8-54b7bf283c9f" xsi:type="tsRead">
+				<COMMENT-I18N xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">读取</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</COMMENT-I18N>
+				<MAPPING-REF xsi:type="string">STATUS_BAT/StateOfCharge [%]/Value</MAPPING-REF>
+				<EXPECTATION xsi:type="timelessOption">
+					<EXPRESSION xsi:type="manualNumericExpression">
+						<BASE-EXPRESSION xsi:type="andBaseExpression">
+							<FIRST-COMPONENT xsi:type="compareOpBaseExpression">
+								<NAME xsi:type="string">&lt;=</NAME>
+								<FIRST-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="integer">20</VALUE>
+								</FIRST-COMPONENT>
+								<SECOND-COMPONENT xsi:type="varBaseExpression">
+									<NAME xsi:type="string">value</NAME>
+								</SECOND-COMPONENT>
+							</FIRST-COMPONENT>
+							<SECOND-COMPONENT xsi:type="compareOpBaseExpression">
+								<NAME xsi:type="string">&lt;=</NAME>
+								<FIRST-COMPONENT xsi:type="varBaseExpression">
+									<NAME xsi:type="string">value</NAME>
+								</FIRST-COMPONENT>
+								<SECOND-COMPONENT format-rev="2" xsi:type="valueBaseExpression">
+									<VALUE xsi:type="integer">90</VALUE>
+								</SECOND-COMPONENT>
+							</SECOND-COMPONENT>
+						</BASE-EXPRESSION>
+					</EXPRESSION>
+				</EXPECTATION>
+				<METRIC format-rev="1" xsi:type="metricInfo">
+					<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+					<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+				</METRIC>
+			</TESTSTEP>
+			<TESTSTEP format-rev="1" id="892940fb-f3b7-439a-8b46-ae292f03f3e0" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">PASS</VALUE>
+				</COMMENT-EXPRESSION>
+				<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP id="04582de1-a7b4-4fc7-a540-3706e0db40ed" name="TsImageUI" xsi:type="utility-52114a80-fdd1-11dd-9178-001a6bc47c7f">
+			<ENABLED xsi:type="boolean">False</ENABLED>
+			<DLG-TITLE format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">001</VALUE>
+			</DLG-TITLE>
+			<DLG-DESCR format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">11</VALUE>
+			</DLG-DESCR>
+			<IMAGE-PATH format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="string">C:\\Users\\12534\\Pictures\\图图图片\\wallhaven-j8e7q5_2560x1600.png</VALUE>
+			</IMAGE-PATH>
+			<TIMEOUT format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">5000</VALUE>
+			</TIMEOUT>
+			<BUTTONS>
+				<ELEMENT xsi:type="buttonDefinition">
+					<LABEL format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">Falid</VALUE>
+					</LABEL>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="integer">2</VALUE>
+					</VALUE>
+				</ELEMENT>
+				<ELEMENT xsi:type="buttonDefinition">
+					<LABEL format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="string">Ok</VALUE>
+					</LABEL>
+					<VALUE format-rev="2" xsi:type="valueBaseExpression">
+						<VALUE xsi:type="boolean">True</VALUE>
+					</VALUE>
+				</ELEMENT>
+			</BUTTONS>
+		</TESTSTEP>
+		<TESTSTEP format-rev="1" id="44d40354-acd5-4467-a3fa-f878ab988899" name="TsInfoBlock" xsi:type="utility-0908a261-ccf9-11e2-a7a4-ec97313539d6">
+			<BLOCK-NAME xsi:type="string">Display</BLOCK-NAME>
+			<INFO-TEXT xsi:type="string">23535</INFO-TEXT>
+			<TIMEOUT format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">2</VALUE>
+			</TIMEOUT>
+			<DIALOG-SIZE-X format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">450</VALUE>
+			</DIALOG-SIZE-X>
+			<DIALOG-SIZE-Y format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">350</VALUE>
+			</DIALOG-SIZE-Y>
+			<EXIT-BLOCK xsi:type="boolean">True</EXIT-BLOCK>
+			<EXIT-TEST xsi:type="boolean">True</EXIT-TEST>
+			<ENABLED xsi:type="boolean">False</ENABLED>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>
